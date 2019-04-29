@@ -1,3 +1,9 @@
+import numpy as np
+
+from layer.mse_layer import MSELossLayer
+from layer.cross_entropy_layer import CrossEntropyLossLayer
+
+
 class Trainer(object):
     """
     Trainer: Object that manages the training of a neural network.
@@ -77,7 +83,7 @@ class Trainer(object):
                 shape (#_training_data_points, ).
         """
 
-        for epoch in range(self.nb_epoch):
+        for _ in range(self.nb_epoch):
             if self.shuffle_flag:
                 (input_dataset, target_dataset) = self.shuffle(
                     input_dataset, target_dataset)

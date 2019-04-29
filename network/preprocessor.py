@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class Preprocessor(object):
     """
     Preprocessor: Object used to apply "preprocessing" operation to datasets.

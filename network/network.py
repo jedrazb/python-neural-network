@@ -1,3 +1,10 @@
+import numpy as np
+
+from layer.relu_layer import ReluLayer
+from layer.sigmoid_layer import SigmoidLayer
+from layer.linear_layer import LinearLayer
+
+
 class MultiLayerNetwork(object):
     """
     MultiLayerNetwork: A network consisting of stacked linear layers and

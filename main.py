@@ -1,5 +1,9 @@
 import numpy as np
 
+from network.network import MultiLayerNetwork
+from network.preprocessor import Preprocessor
+from network.trainer import Trainer
+
 
 def main():
     input_dim = 4

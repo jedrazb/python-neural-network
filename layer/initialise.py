@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def xavier_init(size, gain=1.0):
     """
     Xavier initialization of network weights.
