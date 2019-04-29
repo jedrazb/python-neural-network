@@ -1,5 +1,8 @@
 import numpy as np
 
+from sklearn.metrics import confusion_matrix
+
+from analysis.confustion_matrix import plot_confusion_matrix
 from network.network import MultiLayerNetwork
 from network.preprocessor import Preprocessor
 from network.trainer import Trainer
@@ -46,6 +49,11 @@ def main():
     targets = y_val.argmax(axis=1).squeeze()
     accuracy = (preds == targets).mean()
     print("Validation accuracy: {}".format(accuracy))
+
+    # Confusion matrix
+
+    cm = confusion_matrix(targets, preds)
+    plot_confusion_matrix(cm, ['1', '2', '3'])
 
 
 if __name__ == "__main__":
