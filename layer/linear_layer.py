@@ -1,7 +1,7 @@
 import numpy as np
 
-from layer import Layer
-from initialise import xavier_init
+from layer.layer import Layer
+from layer.initialise import xavier_init
 
 
 class LinearLayer(Layer):
