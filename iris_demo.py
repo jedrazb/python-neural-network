@@ -14,7 +14,7 @@ def main():
     class_labels = ['Virginica', 'Versicolor', 'Setosa']
 
     dat = np.loadtxt(
-        "dataset/iris.data",
+        "dataset/iris/iris.data",
         delimiter=',',
     )
 
@@ -23,7 +23,7 @@ def main():
     # Take first 5 columns as the input X
     x = dat[:, :4]
 
-    # convert the label [0,1,2] representation to on-hot encoding
+    # convert the label [0,1,2] representation to one-hot encoding
     y_labels = dat[:, 4:].astype(int)
     y = indices_to_one_hot(y_labels, len(class_labels))
 

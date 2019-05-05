@@ -83,7 +83,7 @@ class Trainer(object):
                 shape (#_training_data_points, ).
         """
 
-        for _ in range(self.nb_epoch):
+        for epoch in range(self.nb_epoch):
             if self.shuffle_flag:
                 (input_dataset, target_dataset) = self.shuffle(
                     input_dataset, target_dataset)
@@ -104,6 +104,8 @@ class Trainer(object):
 
                 self.network.backward(grad_z)
                 self.network.update_params(self.learning_rate)
+
+            print("Epoch {} out of {} completed".format(epoch, self.nb_epoch))
 
     def eval_loss(self, input_dataset, target_dataset):
         """
