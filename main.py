@@ -3,22 +3,29 @@ import numpy as np
 from sklearn.metrics import confusion_matrix
 
 from analysis.confustion_matrix import plot_confusion_matrix
+from analysis.one_hot_encoder import indices_to_one_hot
 from network.network import MultiLayerNetwork
 from network.preprocessor import Preprocessor
 from network.trainer import Trainer
 
 
 def main():
-    input_dim = 4
-    neurons = [16, 3]
-    activations = ["relu", "identity"]
-    net = MultiLayerNetwork(input_dim, neurons, activations)
 
-    dat = np.loadtxt("dataset/iris.dat")
+    class_labels = ['Virginica', 'Versicolor', 'Setosa']
+
+    dat = np.loadtxt(
+        "dataset/iris.data",
+        delimiter=',',
+    )
+
     np.random.shuffle(dat)
 
+    # Take first 5 columns as the input X
     x = dat[:, :4]
-    y = dat[:, 4:]
+
+    # convert the label [0,1,2] representation to on-hot encoding
+    y_labels = dat[:, 4:].astype(int)
+    y = indices_to_one_hot(y_labels, len(class_labels))
 
     split_idx = int(0.8 * len(x))
 
@@ -31,6 +38,11 @@ def main():
 
     x_train_pre = prep_input.apply(x_train)
     x_val_pre = prep_input.apply(x_val)
+
+    input_dim = 4
+    neurons = [16, 3]
+    activations = ["relu", "identity"]
+    net = MultiLayerNetwork(input_dim, neurons, activations)
 
     trainer = Trainer(
         network=net,
@@ -53,7 +65,7 @@ def main():
     # Confusion matrix
 
     cm = confusion_matrix(targets, preds)
-    plot_confusion_matrix(cm, ['1', '2', '3'])
+    plot_confusion_matrix(cm, class_labels)
 
 
 if __name__ == "__main__":
