@@ -27,7 +27,7 @@ def main():
     y_labels = dat[:, 4:].astype(int)
     y = indices_to_one_hot(y_labels, len(class_labels))
 
-    split_idx = int(0.8 * len(x))
+    split_idx = int(0.5 * len(x))
 
     x_train = x[:split_idx]
     y_train = y[:split_idx]
