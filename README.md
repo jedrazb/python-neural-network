@@ -13,6 +13,11 @@ This a fully functional neural network library with a demo (iris dataset). The i
 
 There are lots of comments in the code explaining the details
 
+## Rquirements
+
+- python 3.x
+- numpy
+
 ## Installation 
 
 To install required dependencies: `make install`. To run the demo: `python3 iris_demo.py`.
