@@ -19,7 +19,6 @@ class Preprocessor(object):
 
         self.min_val = np.amin(data, axis=0)
         self.max_val = np.amax(data, axis=0)
-        print(self.min_val, self.max_val)
 
     def apply(self, data):
         """
@@ -31,7 +30,6 @@ class Preprocessor(object):
         Returns:
             {np.ndarray} normalized dataset.
         """
-
         return (data - self.min_val) / (self.max_val - self.min_val)
 
     def revert(self, data):

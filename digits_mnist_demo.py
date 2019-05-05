@@ -33,10 +33,8 @@ def main():
     train_y = indices_to_one_hot(train_labels, 10)
     test_y = indices_to_one_hot(test_labels, 10)
 
-    prep_input = Preprocessor(train_x)
-
-    train_x_pre = prep_input.apply(train_x)
-    test_x_pre = prep_input.apply(test_x)
+    train_x = train_x / 255
+    test_x = test_x / 255
 
     input_dim = 784
     neurons = [128, 128, 10]
@@ -52,19 +50,19 @@ def main():
         shuffle_flag=True,
     )
 
-    # trainer.train(train_x_pre, train_y)
-    # print("Train loss = ", trainer.eval_loss(train_x_pre, train_y))
-    # print("Validation loss = ", trainer.eval_loss(test_x_pre, test_y))
+    trainer.train(train_x, train_y)
+    print("Train loss = ", trainer.eval_loss(train_x, train_y))
+    print("Validation loss = ", trainer.eval_loss(test_x, test_y))
 
-    # preds = net(test_x_pre).argmax(axis=1).squeeze()
-    # targets = test_y.argmax(axis=1).squeeze()
-    # accuracy = (preds == targets).mean()
-    # print("Validation accuracy: {}".format(accuracy))
+    preds = net(test_x).argmax(axis=1).squeeze()
+    targets = test_y.argmax(axis=1).squeeze()
+    accuracy = (preds == targets).mean()
+    print("Validation accuracy: {}".format(accuracy))
 
-    # # Confusion matrix
+    # Confusion matrix
 
-    # cm = confusion_matrix(targets, preds)
-    # plot_confusion_matrix(cm, class_labels)
+    cm = confusion_matrix(targets, preds)
+    plot_confusion_matrix(cm, class_labels)
 
 
 def load_mnist():
