@@ -1,6 +1,6 @@
-# MLP neural network implemented using numpy
+# MLP neural network library implemented using numpy
 
-This is a simple implementation of multilayer perceptron (feedforward) neural network. The netowrk is implemented using numpy in python.
+This is a simple implementation of multilayer perceptron (feedforward) neural network. The network is implemented using numpy in python.
 
 ## General 
 
