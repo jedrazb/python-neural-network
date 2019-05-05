@@ -1,6 +1,6 @@
-# MLP neural network implemented using numpy
+# MLP neural network library implemented using numpy
 
-This is a simple implementation of multilayer perceptron (feedforward) neural network. The netowrk is implemented using numpy in python.
+This is a simple implementation of multilayer perceptron (feedforward) neural network. The network is implemented using numpy in python.
 
 ## General 
 
@@ -12,6 +12,11 @@ This a fully functional neural network library with a demo (iris dataset). The i
 - confussion matrix visualiser
 
 There are lots of comments in the code explaining the details
+
+## Rquirements
+
+- python 3.x
+- numpy
 
 ## Installation 
 
