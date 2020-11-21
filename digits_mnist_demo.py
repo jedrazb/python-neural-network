@@ -33,19 +33,20 @@ def main():
     train_y = indices_to_one_hot(train_labels, 10)
     test_y = indices_to_one_hot(test_labels, 10)
 
+    # normalize the input data (since max value is at most 255)
     train_x = train_x / 255
     test_x = test_x / 255
 
     input_dim = 784
-    neurons = [128, 128, 10]
+    neurons = [128, 64, 10]
     activations = ["relu", "relu", "identity"]
     net = MultiLayerNetwork(input_dim, neurons, activations)
 
     trainer = Trainer(
         network=net,
-        batch_size=8,
-        nb_epoch=100,
-        learning_rate=0.01,
+        batch_size=512,
+        nb_epoch=256,
+        learning_rate=0.007,
         loss_fun="cross_entropy",
         shuffle_flag=True,
     )

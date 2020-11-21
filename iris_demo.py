@@ -48,7 +48,7 @@ def main():
         network=net,
         batch_size=8,
         nb_epoch=1000,
-        learning_rate=0.01,
+        learning_rate=0.007,
         loss_fun="cross_entropy",
         shuffle_flag=True,
     )
